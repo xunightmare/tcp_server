@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -35,6 +36,7 @@ public class MainActivity extends Activity {
          * 读一下手机wifi状态下的ip地址，只有知道它的ip才能连接它嘛
          */
         Toast.makeText(MainActivity.this, getLocalIpAddress(), Toast.LENGTH_SHORT).show();
+        Log.i("ip", "onCreate: IP:"+getLocalIpAddress());
 
         startButton = (Button) findViewById(R.id.start_button);
         portEditText = (EditText) findViewById(R.id.port_EditText);
@@ -47,6 +49,7 @@ public class MainActivity extends Activity {
         try
         {
             int port =Integer.valueOf(portEditText.getText().toString());//获取portEditText中的端口号
+            Log.i("ip", "onCreate:port= "+port);
             serverSocket = new ServerSocket(port);//监听port端口，这个程序的通信端口就是port了
         }
         catch (IOException e)
