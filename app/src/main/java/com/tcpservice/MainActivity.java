@@ -75,6 +75,7 @@ public class MainActivity extends Activity {
             ServerSocket_thread serversocket_thread = new ServerSocket_thread();
             serversocket_thread.start();
         }
+
     };
     /**
      * 发送消息按钮事件
